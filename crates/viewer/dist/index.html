@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <title>Orin viewer</title>
+        
+<script type="module">
+import init, * as bindings from '/viewer/viewer-b7c66b4d998c2264.js';
+const wasm = await init({ module_or_path: '/viewer/viewer-7f4467c4b1ea76a8_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    <link rel="modulepreload" href="/viewer/viewer-b7c66b4d998c2264.js" crossorigin="anonymous" integrity="sha384-LRmHVsrI3UZ2UtGx/myLnIKqYLTlDUvMWJIfp0NLD8ZAL+zTtB7xEg0HK1a6a91D"><link rel="preload" href="/viewer/viewer-7f4467c4b1ea76a8_bg.wasm" crossorigin="anonymous" integrity="sha384-TrnEGyFhTxwi8a6UBuRMfgKKZaQtrPucdspagZW1LPb5mcjg4bmAMOQdoiojq7vc" as="fetch" type="application/wasm"></head>
+    <body>
+        <img id="image" alt="waiting for image">
+    </body>
+</html>
